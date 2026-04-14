@@ -4,9 +4,9 @@ const bar = document.getElementById("bottom-bar");
 window.addEventListener("scroll", () => {
     let currentScroll = window.pageYOffset;
     if (currentScroll > 100) {
-        bar.classList.replace("d-none", "d-flex");
+        bar.classList.remove("d-none");
     } else {
-        bar.classList.replace("d-flex", "d-none");
+        bar.classList.add("d-none");
     }
     lastScroll = currentScroll;
 });

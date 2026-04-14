@@ -8,7 +8,6 @@ let raceDate = null;
 export async function fetchNextRace() {
     await loadF1Data();
     const { meetings } = getF1Data();
-    
     const now = new Date();
     const nextRace = meetings.find(el => new Date(el.date_start) > now);
 

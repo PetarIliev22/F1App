@@ -16,10 +16,14 @@
     <title>F1 Hub</title>
 </head>
 <body>
+    <div id="loading-screen" class="loading-screen">
+        <img src="./images/f1-logo-white.png" alt="F1 Hub Logo" width="100">
+        <div class="spinner mt-5"></div>
+    </div>
     <header>
         <div class="header-content d-flex align-items-center justify-content-evenly">
             <img src="./images/f1_logo.png" alt="F1 Hub Logo" class="logo">
-            <nav>
+            <nav aria-label="Main navigation">
                 <ul class="nav-list list-unstyled d-md-inline-flex d-none gap-4 m-0">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#">News</a></li>
@@ -29,17 +33,17 @@
                 </ul>
             </nav>
             <div class="social-media d-flex gap-3 m-0">
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-youtube"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="bottm-bar-nav">
-                <nav>
+    <main class="container-md p-0">
+        <section class="bottom-bar-nav">
+                <nav aria-label="Bottom navigation">
                     <ul class="nav-list list-unstyled d-md-none d-none gap-4 m-0" id="bottom-bar">
                         <li><a href="#"><i class="bi bi-newspaper"></i></a></li>
                         <li><a href="#"><i class="bi bi-people"></i></a></li>
@@ -51,49 +55,60 @@
         </section>
 
         <section class="hero-section" id="home">
+            <video src="./videos/video.mp4" autoplay muted loop playsinline></video>
             <div class="hero-text container-fluid text-white p-3">
-                <p class="text-uppercase opacity-75">F1 Mono Sprint</p>
+
+                <p class="text-uppercase opacity-75">F1 RACE INFO - GRAND PRIX</p>
                 <h1 class="display-4 fw-bold" id="grand-prix-name"></h1>
+                
                 <div class="race-info mb-3">
                     <p class="mb-0 race-location" id="circuit-name"></p>
                 </div>
 
-                <p class="opacity-75">LIVE COUNTDOWN TO THE GRAND PRIX</p>
+                <aside class="countdown-container">
+                    <p class="opacity-75">LIVE COUNTDOWN TO THE GRAND PRIX</p>
 
-                <div class="countdown d-flex gap-4 mt-3">
-                    <div class="time-box d-flex flex-column align-items-center">
-                        <span class="time">0</span>
-                        <span class="label">DAYS</span>
-                    </div>
+                    <div class="countdown d-flex gap-4 mt-3">
+                        <div class="time-box d-flex flex-column align-items-center">
+                            <span class="time">0</span>
+                            <span class="label">DAYS</span>
+                        </div>
+                        
+                        <div class="time-box d-flex flex-column align-items-center">
+                            <span class="time">0</span>
+                            <span class="label">HOURS</span>
+                        </div>
                     
-                    <div class="time-box d-flex flex-column align-items-center">
-                        <span class="time">0</span>
-                        <span class="label">HOURS</span>
-                    </div>
-                   
-                    <div class="time-box d-flex flex-column align-items-center">
-                        <span class="time">0</span>
-                        <span class="label">MINUTES</span>
-                    </div>
+                        <div class="time-box d-flex flex-column align-items-center">
+                            <span class="time">0</span>
+                            <span class="label">MINUTES</span>
+                        </div>
 
-                    <div class="time-box d-flex flex-column align-items-center">
-                        <span class="time">0</span>
-                        <span class="label">SECONDS</span>
+                        <div class="time-box d-flex flex-column align-items-center">
+                            <span class="time">0</span>
+                            <span class="label">SECONDS</span>
+                        </div>
                     </div>
-                </div>
+                </aside>
                 
                 <div class="button mt-4 d-flex justify-content-center justify-content-md-start gap-2">
-                    <button class="btn btn-danger btn-md" id="notifyBtn">Learn More</button>
+                    <a href="https://www.formula1.com/en-bg/subscribe-to-f1-tv?from=cz&to=bg" class="btn btn-outline-light btn-md" id="scheduleBtn">GO LIVE</a>
                 </div>
             </div>
         </section>
         
-        <section class="container last-race-card-information">
-            <h2 class="mb-4 text-white" id="feature-race"></h2>
+        <section class="container f1-news-section mt-4">
+            <h2 class="mb-4" id="section-title">LAST NEWS ABOUT F1: </h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3" id="news-container">
+            </div>
+        </section>
 
-            <div class="card d-flex flex-row align-items-center">
+        <section class="container last-race-card-information">
+            <h2 class="mb-4" id="feature-race"></h2>
+
+            <article class="card d-flex flex-row align-items-center">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
-                <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="circuit-image">
+                <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="circuit-image" loading="lazy">
 
                 <div class="card-body d-flex flex-column align-items-center gap-4" id="cardBody">
 
@@ -104,9 +119,9 @@
                     </div>
                 </div>
 
-            </div>
+            </article>
         </section>
-
+        
     </main>
     <footer></footer>
     <script src="./scripts/main.js" type="module"></script>

@@ -26,14 +26,31 @@
     }
 }
 
+@keyframes slideDown {
+    from {
+        transform: translateY(-70px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
 @keyframes zoomIn {
     from {
-        transform: scale(0.2);
+        transform: scale(0.7);
         opacity: 0;
     }
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 
@@ -45,12 +62,48 @@
 
 body {
     font-family: "Orbitron", sans-serif;
-    background-color: rgb(41, 41, 41);
+    background: 
+        linear-gradient(#292929d3),
+        url('../images/wallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: #0b0b0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 6px solid #333;
+    border-top: 6px solid #e10600; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loading-hidden {
+    display: none;
+}
+
+main {
+    background-color: white;
     animation: fadeIn 0.6s ease-in-out;
 }
 
 header {
-    background: linear-gradient(90deg, rgb(50, 50, 50) 0%, rgb(36, 36, 36) 50%, rgb(50, 50, 50) 100%);
+    background: linear-gradient(90deg, #15151e 0%, #15151e 50%, #15151e 100%);
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -107,7 +160,7 @@ header {
     transition: 0.5s;
 }
 
-.bottm-bar-nav {
+.bottom-bar-nav {
     z-index: 999;
     position: fixed;
     bottom: 0;
@@ -118,13 +171,13 @@ header {
     transition: transform 0.3s ease;
 }
 
-.bottm-bar-nav nav ul {
+.bottom-bar-nav nav ul {
     z-index: 999;
     display: flex;
     filter: drop-shadow(2px 4px 6px black);
     justify-content: space-evenly;
     text-align: center;
-    background: linear-gradient(90deg, rgb(55 55 55 / 83%) 0%, rgb(30 30 30 / 85%) 50%, rgb(50 50 50 / 78%) 100%);
+    background: linear-gradient(90deg, #15151e 0%, #15151e 50%, #15151e 100%);
     padding: 10px 0;
     position: fixed;
     bottom: 15px;
@@ -136,13 +189,13 @@ header {
     animation: slideUp 0.9s ease-in-out;
 }
 
-.bottm-bar-nav a {
+.bottom-bar-nav a {
     text-decoration: none;
     color: rgb(168, 168, 168);
     font-size: 16px;
 }
 
-.bottm-bar-nav nav ul li:nth-child(3) a i {
+.bottom-bar-nav nav ul li:nth-child(3) a i {
     color: rgb(255, 255, 255);
     background-color: rgb(177, 2, 2);
     position: absolute;
@@ -158,39 +211,50 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.bottm-bar-nav nav ul li:nth-child(3) a i:hover {
+.bottom-bar-nav nav ul li:nth-child(3) a i:hover {
     color: rgb(228, 0, 0);
     background-color: rgb(255, 255, 255);
     transition: 0.3s;
 }
 
-.bottm-bar-nav a:hover {
+.bottom-bar-nav a:hover {
     color: rgb(255, 255, 255);
     transition: 0.3s;
 }
 
 .hero-section {
-    background:
-        linear-gradient(to right,
-            rgba(36, 36, 36, 0.938) 20%,
-            rgba(31, 31, 31, 0.788) 50%,
-            rgba(31, 31, 31, 0.555) 60%,
-            rgba(27, 27, 27, 0.363) 90%
-        ),
-        url('../images/background.jpg') no-repeat center/cover;
+    position: relative;
     padding: 80px 100px;
     border-bottom: 15px solid rgb(177, 2, 2);
     color: rgb(173, 173, 173);
-    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; 
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,#15151e 0%, #15151e8e 50%, #15151e56 100%);
+    z-index: 1;
 }
 
 .hero-text {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start; 
     justify-content: center;
-    width: 90%;
     animation: slideDown 1s ease-in-out;
+    position: relative;
+    z-index: 2;
 }
 
 #circuit-name{
@@ -235,7 +299,7 @@ header {
     background-color: rgb(177, 2, 2);
     color: rgb(255, 255, 255);
     border: none;
-    padding: 10px 20px;
+    padding: 7px 10px;
     border-radius: 5px;
     font-size: 16px;
 }
@@ -243,8 +307,16 @@ header {
 .last-race-card-information{
     z-index: -1;
     padding: 20px;
-    margin-bottom: 60px;
+    animation: fadeIn 0.6s ease-in-out;
 }
+
+.last-race-card-information #feature-race, #section-title{
+    font-family: "MyFont", sans-serif;
+    font-size: 30px;
+    color: rgb(99, 99, 99);
+    padding: 20px;
+}
+
 .card {
     position: relative;
     background-color: white;
@@ -252,11 +324,13 @@ header {
 }
 
 .card #card-image {
+    z-index: 99;
     position: absolute;
-    top: -1px;
-    left: -1px;
+    top: 0px;
+    left: 0px;
     border-radius: 5px 0 0 0;
-    padding: 10px 15px;
+    padding: 10px 18px 10px 10px;
+    color: white;
     background-color: rgb(255, 6, 6);
     clip-path: polygon(
         0 0,
@@ -275,6 +349,52 @@ header {
     padding: 10px 15px;
 }
 
+.f1-news-section{
+    animation: fadeIn 1s ease-in-out;
+}
+
+#news-container .col:first-child {
+    grid-column: span 10;
+}
+
+#news-container{
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.image-wrapper {
+    position: relative;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+
+.news-card #news-date {
+    background: linear-gradient(90deg, #15151e 0%, #262636 50%, #15151e 100%);
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.658) , rgba(0, 0, 0, 0.007));
+}
+
+.image-overlay h5 {
+    margin: 0;
+    font-size: 16px;
+}
+
 @media screen and (max-width: 600px) {
     .hero-section{
         padding: 100px 0;
@@ -283,6 +403,8 @@ header {
     .hero-text {
         text-align: center;
         width: 100%;
+        align-items: center;
+        transition: 0.3s;
     }
 
     .hero-text h1 {
