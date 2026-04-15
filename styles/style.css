@@ -63,7 +63,7 @@
 body {
     font-family: "Orbitron", sans-serif;
     background: 
-        linear-gradient(#292929d3),
+        linear-gradient(#15151ee1),
         url('../images/wallpaper.jpg');
     background-size: cover;
     background-attachment: fixed;
@@ -284,7 +284,7 @@ header {
 }
 
 .countdown .time {
-    background-color: rgba(0, 0, 0, 0.322);
+    background-color: rgba(95, 46, 46, 0.185);
     padding: 5px;
     border-radius: 10px;
     border: 2px solid rgb(177, 2, 2);
