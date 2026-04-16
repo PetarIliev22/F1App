@@ -1,27 +1,44 @@
 import { fetchNextRace, initCountdown } from "./nextRaceCounter.js";
-const cardBody = document.getElementById("cardBody");
-const circuitImage = document.getElementById("circuit-image");
-const cardText = cardBody.querySelectorAll(".card-text h3");
+
+const cardBody = document.getElementById("card-body");
+const raceInfoBody = document.getElementById("race-info-body");
+const countryFlag = document.getElementById("contry-flag");
+const cardText = document.querySelector("#card-body .card-text h3");
 const featureRaceInfo = document.getElementById("feature-race");
+
+const raceDate = document.getElementById("race-date");
+const raceLocation = document.getElementById("race-location");
+const circuitShortName = document.getElementById("circuit-short-name");
 
 async function displayInfoAboutNextRace() {
     const nextRace = await fetchNextRace();
-
-    featureRaceInfo.innerHTML = "FEATURED RACE:" + "<br>" + nextRace.meeting_name.toUpperCase();
+    
+    if (!nextRace) return;
+    featureRaceInfo.innerHTML = "FEATURED RACE" + "<br>" + nextRace.meeting_name.toUpperCase();
     const img = cardBody.querySelector("img");
     img.src = nextRace.circuit_image;
 
-    cardText[0].innerHTML = `${new Date(nextRace.date_start).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${new Date(nextRace.date_end).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
-    circuitImage.src = nextRace.country_flag;
-}
+    cardText.innerHTML = `${nextRace.circuit_short_name}, ${nextRace.country_name}`;
+    countryFlag.src = nextRace.country_flag;
 
+    const formatDate = (date) =>
+    new Date(date).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric"
+    });
+
+    raceDate.textContent = `${formatDate(nextRace.date_start)} - ${formatDate(nextRace.date_end)}`;
+    raceLocation.textContent = `${nextRace.location}, ${nextRace.country_name}`;
+    circuitShortName.textContent = `${nextRace.circuit_short_name}`;
+}
 
 async function init() {
     try {
         initCountdown();
-        displayInfoAboutNextRace();
+        await displayInfoAboutNextRace();
     } catch (error) {
         console.error(error);
     }
 }
+
 init();

@@ -16,17 +16,21 @@
     <title>F1 Hub</title>
 </head>
 <body>
+    <!-- Loading screen -->
     <div id="loading-screen" class="loading-screen">
         <img src="./images/f1-logo-white.png" alt="F1 Hub Logo" width="100">
         <div class="spinner mt-5"></div>
     </div>
+    <!-- END Loading screen -->
+
+    <!-- Header -->
     <header>
         <div class="header-content d-flex align-items-center justify-content-evenly">
             <img src="./images/f1_logo.png" alt="F1 Hub Logo" class="logo">
             <nav aria-label="Main navigation">
                 <ul class="nav-list list-unstyled d-md-inline-flex d-none gap-4 m-0">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#">News</a></li>
+                    <li><a href="#news">News</a></li>
                     <li><a href="#">Teams</a></li>
                     <li><a href="#">Drivers</a></li>
                     <li><a href="#">Schedule</a></li>
@@ -40,12 +44,15 @@
             </div>
         </div>
     </header>
+    <!-- END Header -->
 
+    <!-- Main Content -->
     <main class="container-md p-0">
+        <!-- Bottom Navigation -->
         <section class="bottom-bar-nav">
                 <nav aria-label="Bottom navigation">
                     <ul class="nav-list list-unstyled d-md-none d-none gap-4 m-0" id="bottom-bar">
-                        <li><a href="#"><i class="bi bi-newspaper"></i></a></li>
+                        <li><a href="#news"><i class="bi bi-newspaper"></i></a></li>
                         <li><a href="#"><i class="bi bi-people"></i></a></li>
                         <li><a href="#home"><i class="bi bi-house"></i></a></li>
                         <li><a href="#"><i class="bi bi-calendar-event"></i></a></li>
@@ -53,7 +60,9 @@
                     </ul>
                 </nav>
         </section>
+        <!-- END Bottom Navigation -->
 
+        <!-- Hero Section -->
         <section class="hero-section" id="home">
             <video src="./videos/video.mp4" autoplay muted loop playsinline></video>
             <div class="hero-text container-fluid text-white p-3">
@@ -96,31 +105,68 @@
                 </div>
             </div>
         </section>
+        <!-- END Hero Section -->
         
-        <section class="container f1-news-section mt-4">
-            <h2 class="mb-4" id="section-title">LATEST NEWS ABOUT F1: </h2>
+        <!-- Latest News -->
+        <section class="container f1-news-section mt-4" id="news">
+            <h2 id="section-title">LATEST NEWS ABOUT F1 </h2>
+            <p class="mb-4" id="section-description">The latest news about Formula 1 and the world of motorsport.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3" id="news-container">
             </div>
         </section>
+        <!-- END Latest News -->
 
+        <!-- Last Race Information -->
         <section class="container last-race-card-information">
             <h2 class="mb-4" id="feature-race"></h2>
 
-            <article class="card d-flex flex-row align-items-center">
+            <article class="last-race-card d-flex flex-column flex-lg-row justify-content-evenly">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
-                <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="circuit-image" loading="lazy">
+                <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag" loading="lazy">
+                
+                <div class="left-side">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center" id="card-body">
+                        <img src="#" alt="Monaco Grand Prix" class="race-image rounded-4" width="250">
 
-                <div class="card-body d-flex flex-column align-items-center gap-4" id="cardBody">
-
-                    <img src="#" alt="Monaco Grand Prix" class="race-image rounded-4" width="250">
-
-                    <div class="card-text">
-                        <h3 id="last-race-date"></h3>
+                        <div class="card-text">
+                            <h3 class="circuit-name"></h3>
+                        </div>
                     </div>
                 </div>
 
+                <div class="center"></div>
+
+                <div class="right-side">
+                    <div class="card-body d-flex flex-column align-items-flex-start" id="race-info-body">
+                        <h3>DATE</h3>
+                        <p id="race-date">-</p>
+
+                        <h3>LOCATION</h3>
+                        <p id="race-location">-</p>
+
+                        <h3>CIRCUIT</h3>
+                        <p id="circuit-short-name">-</p>
+
+                        <div class="circuit-info d-flex gap-3 gap-lg-5 mt-3 flex-wrap align-items-center justify-content-between text-center">
+                            <div>
+                                <h3 class="race-laps">LAPS</h3>
+                                <p id="race-laps">-</p>
+                            </div>
+                            <div>
+                                <h3 class="race-length">LENGTH</h3>
+                                <p id="race-length">-</p>
+                            </div>
+                            <div>
+                                <h3 class="race-weather">WEATHER</h3>
+                                <p id="race-weather">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </article>
+
         </section>
+        <!-- END Last Race Information -->
         
     </main>
     <footer></footer>

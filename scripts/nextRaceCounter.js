@@ -9,7 +9,8 @@ export async function fetchNextRace() {
     await loadF1Data();
     const { meetings } = getF1Data();
     const now = new Date();
-    const nextRace = meetings.find(el => new Date(el.date_start) > now);
+    const meetingsData = meetings || [];
+    const nextRace = meetingsData.find(el => new Date(el.date_start) > now);
 
     if (!nextRace) {
         counterElement.forEach(el => (el.textContent = "0"));
@@ -24,19 +25,32 @@ export async function fetchNextRace() {
     return nextRace;
 }
 
+let intervalStarted = false;
 function startCountdown() {
+    if (intervalStarted) return;
+    intervalStarted = true;
     setInterval(() => {
         if (!raceDate) return;
 
         const now = new Date();
         const diff = raceDate - now;
 
-        if (diff <= 0) return;
+        if (diff <= 0) {
+            counterElement.forEach(el => (el.textContent = "0"));
+            return;
+        }
 
-        counterElement[0].textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
-        counterElement[1].textContent = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        counterElement[2].textContent = Math.floor((diff / (1000 * 60)) % 60);
-        counterElement[3].textContent = Math.floor((diff / 1000) % 60);
+        const time = {
+            days: Math.floor(diff / 86400000),
+            hours: Math.floor(diff / 3600000) % 24,
+            minutes: Math.floor(diff / 60000) % 60,
+            seconds: Math.floor(diff / 1000) % 60
+        };
+
+        counterElement[0].textContent = time.days;
+        counterElement[1].textContent = time.hours;
+        counterElement[2].textContent = time.minutes;
+        counterElement[3].textContent = time.seconds;
     }, 1000);
 }
 

@@ -5,13 +5,13 @@ const newsContainer = document.getElementById("news-container");
 export async function loadNews(){
     await loadF1Data();
     const { news } = getF1Data();
-    let articles = news.articles;
+    let articles = news?.articles || [];
   
     articles.sort((a, b) => new Date(b.published) - new Date(a.published)).forEach(el => {
         const newsCard = document.createElement("div");
         
         const days = Math.floor((new Date() - new Date(el.published)) / 864e5);
-        const timeAgo = days === 0 ? "today" : `${days} days ago`;
+        const timeAgo = days === 0 ? "Today" : `${days} days ago`;
 
         newsCard.classList.add("col");
         newsCard.innerHTML = `
@@ -46,11 +46,11 @@ export async function loadNews(){
             newsCard.querySelector(".description-container").classList.replace("d-none", "d-block");
         });
 
-        newsCard.addEventListener("mouseout", () => {
+        newsCard.addEventListener("mouseleave", () => {
             cardTitle.classList.remove("d-none");
-            imageOverlay.style.animation = "";
-            imageOverlay.style.height = "auto";
-            imageOverlay.style.backgroundColor = "";
+            imageOverlay.style.animation = "fadeOut 0.5s ease-in-out";
+            imageOverlay.style.height = "";
+            imageOverlay.style.backgroundColor = "rgba(255, 0, 0, 0)";
             newsCard.querySelector(".description-container").classList.replace("d-block", "d-none");
         });
     });
