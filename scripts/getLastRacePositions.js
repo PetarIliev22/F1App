@@ -1,8 +1,6 @@
 import { loadF1Data, getF1Data } from "./api.js";
  
 export async function getLastSession() {
-    await loadF1Data();
-
     const { sessions } = getF1Data();
     const now = new Date();
 

@@ -6,10 +6,10 @@ const driversContainer = document.getElementById("drivers-container");
 let pointsMap = new Map();
 let cars = {};
 
-async function loadCars() {
-    const res = await fetch("./data/cars.json");
-    cars = await res.json();
-}
+// async function loadCars() {
+//     const res = await fetch("./data/cars.json");
+//     cars = await res.json();
+// }
 
 function renderDrivers(standings) {
     const driver = getF1Data().drivers;
@@ -55,7 +55,7 @@ function renderDrivers(standings) {
 
 async function init() {
     try {
-        await loadCars();
+        // await loadCars();
         await loadF1Data();
         const standings = await getStandings();
         const pointsData = await getDriverPoints();
