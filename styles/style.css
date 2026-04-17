@@ -588,6 +588,7 @@ header {
 
 @media screen and (max-width: 600px) {
     .driver{
+        margin-bottom: 20px;
         width: 100%;
         justify-content: center;
         flex-direction: column;
