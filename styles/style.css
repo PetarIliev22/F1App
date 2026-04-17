@@ -192,7 +192,7 @@ header {
     filter: drop-shadow(2px 4px 6px black);
     justify-content: space-evenly;
     text-align: center;
-    background: linear-gradient(90deg, #15151e 0%, #15151e 50%, #15151e 100%);
+    background: linear-gradient(90deg, #252535 0%, #282845 50%, #212130 100%);
     padding: 10px 0;
     position: fixed;
     bottom: 15px;
@@ -339,6 +339,7 @@ header {
 }
 
 #section-description{
+    color: rgb(22, 22, 22);
     font-size: 16px;
     padding: 0 20px 0;
 }
@@ -415,11 +416,11 @@ header {
     padding: 10px 15px;
 }
 
-.last-race-card-information #feature-race, #section-title{
+.last-race-card-information #feature-race, #title{
     font-family: "MyFont", sans-serif;
     font-size: 30px;
     color: rgb(99, 99, 99);
-    padding: 20px;
+    padding: 0 20px 0;
 }
 
 .last-race-card {
@@ -429,6 +430,11 @@ header {
     border-radius: 5px;
     box-shadow: 0 4px 20px 4px rgba(67, 67, 67, 0.164);
     border-right: 15px solid rgb(255, 6, 6);
+}
+
+#race-info-body p{
+    font-size: 16px;
+    color: rgb(43, 43, 43);
 }
 
 .last-race-card .left-side{
@@ -490,7 +496,104 @@ header {
 
 /* END Last Race Information */
 
+/* F1 DRIVERS STANDING */
+.f1-drivers-section{
+    background: linear-gradient(90deg, #1b1b27 0%, #2d2d41 50%, #1b1b27 100%);
+    border-top: 15px solid rgb(255, 6, 6);
+    padding: 20px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.f1-drivers-section #title, p{
+    color: rgb(255, 255, 255);
+}
+
+.driver {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px 45px 5px;
+    margin-bottom: 15px;
+    color: #dfdfdf;
+    border-radius: 15px;
+    background: linear-gradient()
+}
+
+.driver-pos {
+    font-weight: bold;
+    width: 37%;
+}
+
+.driver-image {
+    width: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.driver-time h3{
+    font-size: 18px;
+    color: #dfdfdf;
+    margin: 0;
+    text-align: center;
+}
+
+.driver-info h3{
+    margin: 0;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.driver-info p {
+    margin: 0;
+    font-size: 15px;
+    opacity: 0.7;
+    color: #dfdfdf;
+}
+
+.driver-points {
+    width: 32%;
+}
+
+.driver-points img {
+    margin-right: 20px;
+}
+
+.driver-points h3 {
+    margin: 0;
+    font-size: 35px;
+    color: #ffffff;
+}
+
+/* END F1 DRIVERS STANDING */
+
+@media screen and (max-width: 1200px) {
+    .driver{
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+        transition: 0.4s;
+    } 
+
+    .driver-pos{
+        font-size: 25px;
+        transition: 0.4s;
+        width: 100%;
+    } 
+}
+
 @media screen and (max-width: 600px) {
+    .driver{
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+    } 
     .hero-section{
         padding: 100px 0;
     }
