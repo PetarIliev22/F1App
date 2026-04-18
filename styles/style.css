@@ -329,19 +329,14 @@ header {
     animation: zoomIn 0.8s ease-in-out;
 }
 
-#news-container .col:first-child {
-    grid-column: span 10;
+.news-card{
+    border: none;
 }
 
 #news-container{
+    background: linear-gradient(90deg, #15151e 0%, #262636 50%, #15151e 100%);
     font-size: 14px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-#section-description{
-    color: rgb(22, 22, 22);
-    font-size: 16px;
-    padding: 0 20px 0;
 }
 
 .image-wrapper {
@@ -416,7 +411,7 @@ header {
     padding: 10px 15px;
 }
 
-.last-race-card-information #feature-race, #title{
+.last-race-card-information #feature-race, .section-title{
     font-family: "MyFont", sans-serif;
     font-size: 30px;
     color: rgb(99, 99, 99);
@@ -502,88 +497,96 @@ header {
     border-top: 15px solid rgb(255, 6, 6);
     padding: 20px;
     animation: fadeIn 0.6s ease-in-out;
+    color: white;
 }
 
-.f1-drivers-section #title, p{
-    color: rgb(255, 255, 255);
-}
-
-.driver {
-    margin: 0 auto;
+.drivers-table {
+    font-size: 13px;
     width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.drivers-table thead {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.drivers-table th {
+    padding: 8px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.drivers-table td {
+    padding: 9px 25px 9px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: #dfdfdf;
+}
+
+.driver-cell {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 5px 45px 5px;
-    margin-bottom: 15px;
-    color: #dfdfdf;
-    border-radius: 15px;
-    background: linear-gradient()
-}
-
-.driver-pos {
-    font-weight: bold;
-    width: 37%;
+    gap: 10px;
 }
 
 .driver-image {
-    width: 36px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.driver-time h3{
-    font-size: 18px;
-    color: #dfdfdf;
-    margin: 0;
-    text-align: center;
+.team-text {
+    font-size: 14px;
+    opacity: 0.8;
 }
 
-.driver-info h3{
-    margin: 0;
+.points {
     font-size: 20px;
-    color: #ffffff;
+    font-weight: bold;
+    color: #fff;
 }
 
-.driver-info p {
-    margin: 0;
-    font-size: 15px;
-    opacity: 0.7;
-    color: #dfdfdf;
+.car-img {
+    width: 120px;
 }
 
-.driver-points {
-    width: 32%;
-}
-
-.driver-points img {
-    margin-right: 20px;
-}
-
-.driver-points h3 {
-    margin: 0;
-    font-size: 35px;
-    color: #ffffff;
+.drivers-table tbody tr:hover {
+    transform: scale(1.02);
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 /* END F1 DRIVERS STANDING */
 
 @media screen and (max-width: 1200px) {
-    .driver{
-        width: 100%;
-        justify-content: center;
-        flex-direction: column;
-        padding: 20px;
-        align-items: flex-start;
-        transition: 0.4s;
-    } 
+    .drivers-table {
+        width: stretch;
+        font-size: 13px;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        transition: 0.3s;
+    }
 
-    .driver-pos{
-        font-size: 25px;
-        transition: 0.4s;
-        width: 100%;
-    } 
+    .drivers-table th,
+    .drivers-table td {
+        padding: 10px;
+    }
+
+    .car-img {
+        width: 80px;
+    }
+
+    .driver-image {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 @media screen and (max-width: 600px) {

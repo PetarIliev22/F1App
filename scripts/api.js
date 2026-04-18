@@ -1,5 +1,8 @@
 function getJSON(url) {
-    return fetch(url).then(r => r.json());
+    return fetch(url).then(r => {
+        if (!r.ok) throw new Error(`HTTP error ${r.status}`);
+        return r.json();
+    });
 }
 
 let loadingPromise = null;
@@ -12,31 +15,37 @@ let cache = (() => {
     }
 })();
 
-export function loadF1Data() {
-    if (cache !== null) return Promise.resolve(cache);
+export async function loadF1Data() {
+    const cashed = sessionStorage.getItem("f1Data");
+    if (cache !== null) return cache;
+
     if (loadingPromise) return loadingPromise;
 
-    const fetchDrivers = getJSON("https://api.openf1.org/v1/drivers");
-    const fetchMeetings = getJSON("https://api.openf1.org/v1/meetings?year=2026").then(data => data.filter(el => el.is_cancelled === false));
-    const fetchSessions = getJSON("https://api.openf1.org/v1/sessions");
-    const fetchNews = getJSON("https://site.api.espn.com/apis/site/v2/sports/racing/f1/news");
+    loadingPromise = (async () => {
+        try{
+            const drivers = await getJSON("https://api.openf1.org/v1/drivers")
+            const meetingRaw = await getJSON("https://api.openf1.org/v1/meetings?year=2026")
+            const meetings = meetingRaw.filter(el => !el.is_cancelled)
+            const sessions = await getJSON("https://api.openf1.org/v1/sessions")
+            const news = await getJSON("https://site.api.espn.com/apis/site/v2/sports/racing/f1/news")
+    
+            const cache = { drivers, meetings, sessions, news };
 
-    loadingPromise = Promise.all([
-        fetchDrivers,
-        fetchMeetings,
-        fetchSessions,
-        fetchNews
-    ]).then(([drivers, meetings, sessions, news]) => {
+            try {
+                sessionStorage.setItem("f1Data", JSON.stringify(cache));
+            } catch {}
 
-        cache = { drivers, meetings, sessions, news };
-        sessionStorage.setItem("f1Data", JSON.stringify(cache));
+            return cache;
 
-        return cache;
-    });
-
+        } catch (error) {
+            loadingPromise = null;
+            throw error;
+        }
+    })();
     return loadingPromise;
 }
 
 export function getF1Data() {
-    return cache;
+    const data = sessionStorage.getItem("f1Data");
+    return data ? JSON.parse(data) : null;
 }

@@ -15,7 +15,7 @@ export async function loadNews(){
 
         newsCard.classList.add("col");
         newsCard.innerHTML = `
-        <div class="card h-100 news-card">
+        <div class="card news-card">
             <img src="./images/f1-logo-white.png" width="80" id="card-image">
             <div class="image-wrapper">
                 <img src="${el.images[0].url}" class="card-img-top dynamic-img" alt="${el.headline}">
@@ -29,7 +29,7 @@ export async function loadNews(){
                 </div>
             </div>
             
-            <small class="p-2 text-end" id="news-date">${timeAgo}</small>
+            <small class="p-1 text-end" id="news-date">${timeAgo}</small>
         </div>
         `;
 

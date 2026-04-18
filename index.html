@@ -109,8 +109,8 @@
         
         <!-- Latest News -->
         <section class="container f1-news-section mt-4" id="news">
-            <h2 id="title">LATEST NEWS ABOUT F1 </h2>
-            <p class="mb-4" id="section-description">The latest news about Formula 1 and the world of motorsport.</p>
+            <h2 class="section-title">LATEST NEWS ABOUT F1 </h2>
+            <p class="mb-4 p-3" class="section-description">The latest news about Formula 1 and the world of motorsport.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3" id="news-container">
             </div>
         </section>
@@ -170,10 +170,22 @@
 
         <!-- F1 DRIVERS STANDING -->
         <section class="container f1-drivers-section mt-4 p-3 pb-5" id="drivers">
-            <h2 id="title">DRIVERS STANDING</h2>
-            <p class="mb-4 text-white" id="section-description">The drivers standing for the 2026 season.</p>
+            <h2 class="section-title text-white">DRIVERS STANDING</h2>
+            <p class="mb-4 p-3" class="section-description">The drivers standing for the 2026 season.</p>
             <div class="container" id="drivers-container">
-                
+                <table class="drivers-table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Driver</th>
+                            <th>Team</th>
+                            <th>Time</th>
+                            <th>Car</th>
+                            <th>PTS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="drivers-body"></tbody>
+                </table>
             </div>
         </section>
         <!-- END F1 DRIVERS STANDING -->

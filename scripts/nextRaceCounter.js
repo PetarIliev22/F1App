@@ -6,7 +6,7 @@ const circuitName = document.getElementById("circuit-name");
 
 let raceDate = null;
 export async function fetchNextRace() {
-    await loadF1Data();
+ 
     const { meetings } = getF1Data();
     const now = new Date();
     const meetingsData = meetings || [];
@@ -20,8 +20,7 @@ export async function fetchNextRace() {
     raceDate = new Date(nextRace.date_start);
     grandPrixName.textContent = `Grand Prix of ${nextRace.country_name}`;
     circuitName.textContent = `${nextRace.circuit_short_name}, ${nextRace.country_name}`;
-
-    console.log(nextRace);
+    
     return nextRace;
 }
 

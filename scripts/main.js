@@ -1,4 +1,4 @@
-import { loadF1Data } from "./api.js";
+import { loadF1Data, getF1Data } from "./api.js";
 import "./api.js";
 import "./nextRaceInfo.js";
 import "./mobileBottomNavBar.js"
