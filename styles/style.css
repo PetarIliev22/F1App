@@ -44,6 +44,29 @@
     }
 }
 
+@keyframes scrollDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scrollUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 @keyframes zoomIn {
     from {
         transform: scale(0.7);
@@ -108,7 +131,7 @@ body {
 /* END Loading Screen */
 
 main {
-    background-color: white;
+    background: linear-gradient(120deg, #ffffff 0%, #e7e7e7 50%, #d3d3d3 100%);
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -333,8 +356,13 @@ header {
     border: none;
 }
 
+.news-card:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+}
+
 #news-container{
-    background: linear-gradient(90deg, #15151e 0%, #262636 50%, #15151e 100%);
+    border-bottom: 15px solid red;
     font-size: 14px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -354,9 +382,8 @@ header {
 }
 
 .news-card #news-date {
-    background: linear-gradient(90deg, #15151e 0%, #262636 50%, #15151e 100%);
-    color: white;
-    font-weight: bold;
+    color: rgb(85, 85, 85);
+    font-size: 11px;
     border-radius: 0 0 5px 5px;
 }
 
@@ -425,6 +452,11 @@ header {
     border-radius: 5px;
     box-shadow: 0 4px 20px 4px rgba(67, 67, 67, 0.164);
     border-right: 15px solid rgb(255, 6, 6);
+}
+
+.last-race-card:hover{
+    transform: scale(1.01);
+    transition: 0.3s;
 }
 
 #race-info-body p{
@@ -500,6 +532,10 @@ header {
     color: white;
 }
 
+#drivers-container{
+    padding-bottom: 30px;
+}
+
 .drivers-table {
     font-size: 13px;
     width: 90%;
@@ -523,6 +559,7 @@ header {
 }
 
 .drivers-table td {
+    text-align: center;
     padding: 9px 25px 9px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     color: #dfdfdf;
@@ -562,7 +599,59 @@ header {
     cursor: pointer;
 }
 
+#load-more{
+    opacity: 0.7;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    font-family: "MyFont", sans-serif;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#load-more:hover{
+    opacity: 1;
+    transition: 0.3s;
+}
+
 /* END F1 DRIVERS STANDING */
+
+/* DRIVERS MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* END DRIVERS MODAL */
 
 @media screen and (max-width: 1200px) {
     .drivers-table {

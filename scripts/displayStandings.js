@@ -5,18 +5,26 @@ import { getStandings } from "./getLastRacePositions.js";
 import { getDriverPoints } from "./driverPoints.js";
 
 const driversContainer = document.getElementById("drivers-container");
+const loadMore = document.getElementById("load-more");
+
 let pointsMap = new Map();
+let sliceNumber = 5;
+let opened = false;
+let selecteddriverNumber = null
+let standings = [];
 
-
+const tbody = document.getElementById("drivers-body");
 function renderDrivers(standings) {
     const drivers = getF1Data().drivers;
-    const sessionKey = standings?.[0]?.session_key;
     const driversMap = new Map(drivers.map(d => [d.driver_number, d]));
-    const tbody = document.getElementById("drivers-body");
-    
-    standings.forEach(s => {
+
+    const sessionKey = standings?.[0]?.session_key;
+
+    tbody.innerHTML = "";
+
+    let topFive = standings.slice(0, sliceNumber);
+    topFive.forEach(s => {
         const driverData = driversMap.get(Number(s.driver_number));
-        console.log(driverData);
         const points = pointsMap.get(String(s.driver_number)) ?? 0;
 
         const row = document.createElement("tr");
@@ -41,18 +49,64 @@ function renderDrivers(standings) {
             <td>
                 <img src="${cars[String(s.driver_number)] ?? './images/cars_images/default.png'}" width="150" alt="car">
             </td>
-
-            <td><strong>${points}</strong> PTS</td>
         `;
+        
+        row.style.cursor = "pointer";
+        row.addEventListener("click", () => {
+            selecteddriverNumber = s.driver_number;
+            console.log(selecteddriverNumber);
+            driverModal();
+        });
 
         tbody.appendChild(row);
     });
 }
 
+function driverModal() {
+    const modal = document.getElementById("driver-modal");
+    modal.classList.replace("d-none", "d-flex");
+
+    const driverData = driversInfo[selecteddriverNumber];
+    const points = pointsMap.get(String(selecteddriverNumber)) ?? 0;
+
+    const modalContent = document.getElementById("modal-content");
+    modalContent.innerHTML = `
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div class="driver-modal">
+            <div class="modal-image">
+                <img src="${driverData?.image}" alt="Driver ${selecteddriverNumber}" id="driver-modal-image" width="100">
+            </div>
+            <div class="modal-info">
+                <h2>${driverData?.full_name ?? `Driver ${selecteddriverNumber}`}</h2>
+                <p>Team: ${driverData?.team_name ?? "Unknown team"}</p>
+                <p>Points: ${points}</p>
+            </div>
+        </div>
+    `;
+}
+
+function loadMoreDrivers() {
+    loadMore.addEventListener("click", async () => {
+        if(!opened){
+            sliceNumber = Infinity
+            loadMore.innerHTML = "Close";
+            tbody.style.animation = "scrollDown 0.3s ease-in-out"; 
+        }else{
+            sliceNumber = 5;
+            loadMore.innerHTML = "Load more";
+            tbody.style.animation = "scrollUp 0.3s ease-in-out";
+        }
+        opened = !opened;
+        renderDrivers(standings);
+    });
+}
+loadMoreDrivers();
+
+
 async function init() {
     try {
-        await loadF1Data();
-        const standings = await getStandings();
+        await loadF1Data(); 
+        standings = await getStandings();
         const pointsData = await getDriverPoints();
 
         pointsMap = new Map(

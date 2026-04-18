@@ -51,7 +51,7 @@
         <!-- Bottom Navigation -->
         <section class="bottom-bar-nav">
                 <nav aria-label="Bottom navigation">
-                    <ul class="nav-list list-unstyled d-md-none d-none gap-4 m-0" id="bottom-bar">
+                    <ul class="nav-list list-unstyled d-md-none d-flex gap-4 m-0" id="bottom-bar">
                         <li><a href="#news"><i class="bi bi-newspaper"></i></a></li>
                         <li><a href="#"><i class="bi bi-people"></i></a></li>
                         <li><a href="#home"><i class="bi bi-house"></i></a></li>
@@ -75,7 +75,7 @@
                 </div>
 
                 <aside class="countdown-container">
-                    <p class="opacity-75">LIVE COUNTDOWN TO THE GRAND PRIX</p>
+                    <p class="opacity-75">The countdown shows time remaining until lights out at the next Grand Prix. Stay ready for race day excitement.</p>
 
                     <div class="countdown d-flex gap-4 mt-3">
                         <div class="time-box d-flex flex-column align-items-center">
@@ -110,7 +110,7 @@
         <!-- Latest News -->
         <section class="container f1-news-section mt-4" id="news">
             <h2 class="section-title">LATEST NEWS ABOUT F1 </h2>
-            <p class="mb-4 p-3" class="section-description">The latest news about Formula 1 and the world of motorsport.</p>
+            <p class="mb-4 p-3" class="section-description">Stay up to date with the latest Formula 1 news, team updates, driver announcements, and behind-the-scenes stories from the paddock.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3" id="news-container">
             </div>
         </section>
@@ -119,7 +119,7 @@
         <!-- Last Race Information -->
         <section class="container last-race-card-information">
             <h2 class="mb-4" id="feature-race"></h2>
-
+            <p class="p-3" class="section-description">Relive the latest Formula 1 Grand Prix with full race details, track information, and performance statistics.</p>
             <article class="last-race-card d-flex flex-column flex-lg-row justify-content-evenly">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
                 <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag" loading="lazy">
@@ -171,7 +171,7 @@
         <!-- F1 DRIVERS STANDING -->
         <section class="container f1-drivers-section mt-4 p-3 pb-5" id="drivers">
             <h2 class="section-title text-white">DRIVERS STANDING</h2>
-            <p class="mb-4 p-3" class="section-description">The drivers standing for the 2026 season.</p>
+            <p class="mb-4 p-3" class="section-description">Current Formula 1 driver standings for the 2026 season. Points are updated after each race weekend.</p>
             <div class="container" id="drivers-container">
                 <table class="drivers-table">
                     <thead>
@@ -181,15 +181,27 @@
                             <th>Team</th>
                             <th>Time</th>
                             <th>Car</th>
-                            <th>PTS</th>
                         </tr>
                     </thead>
                     <tbody id="drivers-body"></tbody>
                 </table>
+                <button class="btn load-standing" id="load-more">Load More</button>
+            </div>
+            <div>
+                <p class="p-3 pt-4 text-center" class="section-description">Rankings are based on official FIA points system and updated live after each race.</p>
+                <div class="d-flex flex-row align-items-center justify-content-center gap-5">
+                    <img src="./images/f1-logo-white.png" alt="F1 Hub Logo" width="100">
+                    <img src="./images//fia.png" alt="F1 Hub Logo" width="80">
+                </div>
+            </div>
+            <div id="driver-modal" class="modal d-none">
+                <div class="modal-content">
+                    <button class="close-btn" onclick="closeModal()">×</button>
+                    <div id="modal-content"></div>
+                </div>
             </div>
         </section>
         <!-- END F1 DRIVERS STANDING -->
-        
     </main>
     <!-- END Main Content -->
      

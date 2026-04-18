@@ -59,13 +59,13 @@ export const driversInfo = {
     achievements: ["Multiple World Championships", "Youngest race winner", "Record dominance seasons"]
   },
 
-  "6": {
+  "11": {
     name: "Sergio Pérez",
-    number: 6,
+    number: 11,
     team: "Red Bull Racing",
     country: "Mexico",
     birthDate: "1990-01-26",
-    image: "./images/drivers/perez.jpg",
+    image: "./images/drivers/perez.png",
     bio: "Sergio Pérez is an experienced Formula 1 driver known for exceptional tyre management and racecraft in chaotic conditions. He is especially strong in street circuits and long stints.",
     career: ["Sauber", "McLaren", "Force India/Racing Point", "Red Bull Racing"],
     achievements: ["Multiple GP wins", "Monaco GP Winner", "Strong strategist"]
@@ -101,7 +101,7 @@ export const driversInfo = {
     team: "Aston Martin",
     country: "Spain",
     birthDate: "1981-07-29",
-    image: "./images/drivers/alonso.jpg",
+    image: "./images/drivers/alonso.png",
     bio: "Fernando Alonso is a two-time World Champion and one of the most experienced drivers in F1 history. Known for aggressive racecraft and exceptional race intelligence.",
     career: ["Minardi", "Renault", "McLaren", "Ferrari", "Alpine", "Aston Martin"],
     achievements: ["2× World Champion", "Multiple GP wins"]
@@ -113,7 +113,7 @@ export const driversInfo = {
     team: "Aston Martin",
     country: "Canada",
     birthDate: "1998-10-29",
-    image: "./images/drivers/stroll.jpg",
+    image: "./images/drivers/stroll.png",
     bio: "Lance Stroll is a consistent midfield driver known for strong wet-weather performances and solid race execution.",
     career: ["Williams", "Racing Point", "Aston Martin"],
     achievements: ["Multiple podiums"]
@@ -125,20 +125,20 @@ export const driversInfo = {
     team: "Alpine",
     country: "France",
     birthDate: "1996-02-07",
-    image: "./images/drivers/gasly.jpg",
+    image: "./images/drivers/gasly.png",
     bio: "Pierre Gasly is a race-winning driver known for strong midfield performances and aggressive race pace. He is especially strong in chaotic races.",
     career: ["Toro Rosso", "Red Bull", "AlphaTauri", "Alpine"],
     achievements: ["Monza 2020 GP Winner", "Multiple podiums"]
   },
 
   "43": {
-    name: "Jack Doohan",
+    name: "Franco Colapinto",
     number: 43,
     team: "Alpine",
-    country: "Australia",
-    birthDate: "2003-01-20",
-    image: "./images/drivers/doohan.jpg",
-    bio: "Jack Doohan is an Alpine junior driver with strong Formula 2 results and growing F1 potential.",
+    country: "Argentina",
+    birthDate: "2003-05-27",
+    image: "./images/drivers/colapinto.png",
+    bio: "Franco Colapinto is a young driver known for strong midfield performances and aggressive race pace. He is especially strong in chaotic races. He is one of the strongest rookies of his generation.",
     career: ["F3", "F2", "Alpine Junior Program"],
     achievements: ["F2 podiums"]
   },
@@ -149,7 +149,7 @@ export const driversInfo = {
     team: "Williams",
     country: "Thailand",
     birthDate: "1996-03-23",
-    image: "./images/drivers/albon.jpg",
+    image: "./images/drivers/albon.png",
     bio: "Alexander Albon is a resilient driver known for strong race pace and leading Williams’ development direction.",
     career: ["Toro Rosso", "Red Bull", "Williams"],
     achievements: ["Multiple podiums"]
@@ -161,7 +161,7 @@ export const driversInfo = {
     team: "Williams",
     country: "Spain",
     birthDate: "1994-09-01",
-    image: "./images/drivers/sainz.jpg",
+    image: "./images/drivers/sainz.png",
     bio: "Carlos Sainz is a race-winning driver known for smooth driving style, strong strategy execution, and consistent performances.",
     career: ["Toro Rosso", "Renault", "McLaren", "Ferrari", "Williams"],
     achievements: ["Multiple GP wins"]
@@ -197,15 +197,15 @@ export const driversInfo = {
     team: "RB",
     country: "New Zealand",
     birthDate: "2002-02-11",
-    image: "./images/drivers/lawson.jpg",
+    image: "./images/drivers/lawson.png",
     bio: "Liam Lawson is an aggressive Red Bull junior driver known for strong substitute F1 performances and racecraft maturity.",
     career: ["F3", "Super Formula", "RB Junior", "RB F1"],
     achievements: ["Strong F1 debut performances"]
   },
 
-  "41": {
+  "6": {
     name: "Isack Hadjar",
-    number: 41,
+    number: 6,
     team: "RB",
     country: "France",
     birthDate: "2004-09-28",
@@ -215,51 +215,51 @@ export const driversInfo = {
     achievements: ["F2 podiums"]
   },
 
-  "5": {
+  "77": {
     name: "Valtteri Bottas",
-    number: 5,
-    team: "Audi",
+    number: 77,
+    team: "Cadillac",
     country: "Finland",
     birthDate: "1989-08-28",
-    image: "./images/drivers/bottas.jpg",
+    image: "./images/drivers/bottas.png",
     bio: "Valtteri Bottas is a highly experienced Formula 1 driver known for consistency, technical feedback, and multiple race wins.",
     career: ["Williams", "Mercedes", "Alfa Romeo/Sauber", "Audi"],
     achievements: ["Multiple GP wins", "Pole positions"]
   },
 
-  "27": {
+  "5": {
     name: "Gabriel Bortoleto",
-    number: 27,
+    number: 5,
     team: "Audi",
     country: "Brazil",
     birthDate: "2004-10-14",
-    image: "./images/drivers/bortoleto.jpg",
+    image: "./images/drivers/bortoleto.png",
     bio: "Gabriel Bortoleto is a Brazilian rising star and Formula 2 champion known for consistency and intelligent race management.",
-    career: ["F3 Champion", "F2 Champion"],
-    achievements: ["F2 Champion", "F3 Champion"]
+    career: ["F4", "F3", "F2"],
+    achievements: ["Multiple podiums"]
   },
 
-  "11": {
-    name: "Colton Herta",
-    number: 11,
-    team: "Cadillac",
-    country: "United States",
-    birthDate: "2000-03-30",
-    image: "./images/drivers/herta.jpg",
-    bio: "Colton Herta is an IndyCar star transitioning to Formula 1 with Cadillac’s new American F1 project.",
+  "41": {
+    name: "Arvid Lindblad",
+    number: 41,
+    team: "RB",
+    country: "United Kingdom",
+    birthDate: "2007-08-08",
+    image: "./images/drivers/lindblad.png",
+    bio: "Arvid Lindblad is a Formula 2 standout driver known for strong qualifying pace and aggressive race execution. He is one of the strongest rookies of his generation.",
     career: ["IndyCar", "Cadillac F1"],
     achievements: ["Multiple IndyCar wins"]
   },
 
-  "77": {
-    name: "TBD Driver",
-    number: 77,
-    team: "Cadillac",
-    country: "TBD",
-    birthDate: "",
-    image: "./images/drivers/tbd.jpg",
-    bio: "This seat is not yet confirmed for Cadillac’s Formula 1 debut season in 2026.",
-    career: [],
-    achievements: []
+  "27": {
+    name: "Niko Hulkenberg",
+    number: 27,
+    team: "Audi",
+    country: "Germany",
+    birthDate: "1987-08-19",
+    image: "./images/drivers/hulkenberg.png",
+    bio: "Niko Hulkenberg is a German Formula 1 driver known for consistency and strong racecraft. He is one of the most experienced drivers in the game.",
+    career: ["Williams", "Red Bull", "Audi"],
+    achievements: ["Multiple GP wins", "Pole positions"]
   }
 };
