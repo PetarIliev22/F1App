@@ -1,4 +1,4 @@
-import { loadF1Data, getF1Data } from "./api.js";
+import { getF1Data } from "./api.js";
 import "./api.js";
 import "./nextRaceInfo.js";
 import "./mobileBottomNavBar.js"
@@ -8,7 +8,7 @@ import "./displayStandings.js";
 import "./driverPoints.js";
 
 window.addEventListener("load", async () => {
-    await loadF1Data();
+    await getF1Data();
     const loader = document.getElementById("loading-screen");
     loader.classList.add("loading-hidden");
 });

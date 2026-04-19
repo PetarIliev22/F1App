@@ -445,6 +445,13 @@ header {
     padding: 0 20px 0;
 }
 
+.section-description{
+    font-family: "MyFont-Regular", sans-serif;
+    font-size: 16px;
+    color: rgb(92, 92, 92);
+    padding: 0 20px 0;
+}
+
 .last-race-card {
     position: relative;
     background-color: white;
@@ -624,31 +631,212 @@ header {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: #2424348c;
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .modal-content {
-    background: #111;
-    color: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 320px;
+    font-family: 'Myfont-Regular', sans-serif;
+    padding: 0;
+    width: 95%;
+    max-width: 1200px;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+    border: none;
+}
+
+.f1-driver-card {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    border-radius: 9px;
+    overflow: hidden;
+    color: white;
+    font-family: "MyFont", sans-serif;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .close-btn {
     position: absolute;
-    top: 8px;
-    right: 10px;
-    background: transparent;
+    top: 15px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.3);
     border: none;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.card-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    animation: zoomIn 0.4s ease-in-out;
+}
+
+.driver-name-group h2 {
+    font-size: 5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.driver-name-group h2:nth-child(1) {
+    margin: 0;
+    font-size: 4.5rem;
+    font-family: "Caveat", sans-serif;
+}
+.driver-info-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+    z-index: 2;
+}
+
+.decorative-line {
+    margin: 0 auto;
+    width: 11px;
+    height: 80px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.decorative-line.bottom {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.driver-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.driver-meta .divider {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.driver-image-panel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.giant-bg-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    line-height: 1;
+}
+
+.driver-image-panel img {
+    width: 60%;
+    z-index: 99;
+    object-fit: cover;
+    object-position: right center;
+    transform: translateY(40%);
+}
+
+.driver-bio-section {
+    margin: 15px 0;
+    max-width: 85%;
+}
+
+.bio-text {
+    font-family: "MyFont-Regular", sans-serif;
+    text-align: center;
+    background-color: #1f1f1f69;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    border-radius: 20px;
+    box-shadow: inset 5px 6px 6px 2px rgb(2 2 2 / 13%);
+}
+
+.stats-grid {
+    background-color: rgb(22 22 22 / 41%);
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 15px;
+    padding: 20px;
+    max-width: 90%;
+    border-radius: 20px;
+}
+
+.stats-column h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(229 204 5);
+    margin-bottom: 16px;
+}
+
+.stats-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stats-column li {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    border-left: 2px solid white;
+    padding-left: 8px;
+}
+
+.driver-points {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: 900;
+    opacity: 0.4;
+}
+
+.driver-info-panel {
+    overflow-y: auto;
+}
+
+.driver-info-panel::-webkit-scrollbar {
+    width: 4px;
+}
+.driver-info-panel::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
 
 /* END DRIVERS MODAL */
@@ -675,6 +863,84 @@ header {
     .driver-image {
         width: 30px;
         height: 30px;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .f1-driver-card {
+        height: auto;
+        min-height: 100vh; 
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .modal {
+        padding: 20px;
+    }
+    .modal-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-content {
+        flex-direction: column;
+    }
+
+    .driver-name-group h2 {
+        font-size: 3.2rem;
+        line-height: 1.1;
+    }
+
+    .driver-name-group h2:nth-child(1) {
+        font-size: 2.8rem;
+    }
+
+    .driver-meta {
+        font-size: 0.8rem;
+        gap: 6px;
+    }
+
+    .bio-text {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+
+    .stats-grid {
+        padding: 12px;
+    }
+
+    .stats-column h3 {
+        font-size: 0.7rem;
+    }
+
+    .stats-column li {
+        font-size: 0.75rem;
+    }
+
+    .driver-image-panel {
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .driver-image-panel img {
+        width: 70%;
+        transform: none; 
+    }
+
+    .giant-bg-number {
+        font-size: 8rem;
+        opacity: 0.1;
+    }
+
+    .driver-points {
+        font-size: 1.2rem;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .driver-info-panel {
+        overflow: visible;
+        padding: 20px 15px;
     }
 }
 

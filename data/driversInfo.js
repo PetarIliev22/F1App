@@ -12,7 +12,7 @@ export const driversInfo = {
   },
 
   "12": {
-    name: "Andrea Kimi Antonelli",
+    name: "Kimi Antonelli",
     number: 12,
     team: "Mercedes",
     country: "Italy",

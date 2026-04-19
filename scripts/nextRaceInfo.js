@@ -1,4 +1,4 @@
-import { loadF1Data } from "./api.js";
+import { getF1Data } from "./api.js";
 import { fetchNextRace, initCountdown } from "./nextRaceCounter.js";
 
 const cardBody = document.getElementById("card-body");
@@ -35,7 +35,7 @@ async function displayInfoAboutNextRace() {
 
 async function init() {
     try {
-        await loadF1Data();
+        await getF1Data();
         initCountdown();
         await displayInfoAboutNextRace();
     } catch (error) {

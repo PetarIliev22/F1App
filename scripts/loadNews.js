@@ -1,10 +1,10 @@
-import { loadF1Data, getF1Data } from "./api.js";
+import { getF1Data } from "./api.js";
 
 const newsContainer = document.getElementById("news-container");
 
 export async function loadNews(){
-    await loadF1Data();
-    const { news } = getF1Data();
+    const data = await getF1Data();
+    const news = data?.news;
     let articles = news?.articles || [];
   
     articles.sort((a, b) => new Date(b.published) - new Date(a.published)).forEach(el => {

@@ -1,17 +1,17 @@
 import { getLastSession } from "./getLastRacePositions.js";
 
+
+let loadingProgress = false;
 export async function getDriverPoints() {
     const cached = sessionStorage.getItem("driverPoints");
 
     if (cached) {
-        try {
-            const parsed = JSON.parse(cached);
-            return Array.isArray(parsed) ? parsed : [];
-        } catch {
-            sessionStorage.removeItem("driverPoints");
-        }
+        return JSON.parse(cached);
     }
 
+    if (loadingProgress) return [];
+    loadingProgress = true;
+    
     try {
         const sessionKey = await getLastSession();
         if (!sessionKey) return [];
@@ -26,15 +26,10 @@ export async function getDriverPoints() {
         const data = await response.json();
         const safeData = Array.isArray(data) ? data : [];
 
-        try {
-            sessionStorage.setItem("driverPoints", JSON.stringify(safeData));
-        } catch {}
-
+        sessionStorage.setItem("driverPoints", JSON.stringify(safeData));
         return safeData;
-
-    } catch (err) {
-        console.error("getDriverPoints failed:", err);
-        return [];
+    } finally {
+        loadingProgress = false;
     }
 }
 

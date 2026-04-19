@@ -1,4 +1,4 @@
-import { loadF1Data, getF1Data } from "./api.js";
+import { getF1Data  } from "./api.js";
 
 const counterElement = document.querySelectorAll(".time");
 const grandPrixName = document.getElementById("grand-prix-name");
@@ -6,9 +6,10 @@ const circuitName = document.getElementById("circuit-name");
 
 let raceDate = null;
 export async function fetchNextRace() {
- 
-    const { meetings } = getF1Data();
+    const data = await getF1Data();
+    const meetings = data?.meetings;
     const now = new Date();
+    
     const meetingsData = meetings || [];
     const nextRace = meetingsData.find(el => new Date(el.date_start) > now);
 
