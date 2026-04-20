@@ -21,7 +21,7 @@ export async function fetchNextRace() {
     raceDate = new Date(nextRace.date_start);
     grandPrixName.textContent = `Grand Prix of ${nextRace.country_name}`;
     circuitName.textContent = `${nextRace.circuit_short_name}, ${nextRace.country_name}`;
-    
+
     return nextRace;
 }
 

@@ -55,6 +55,29 @@
     }
 }
 
+@keyframes slideRight {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.65;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-120%) translateX(-30%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-30%);
+        opacity: 0.65;
+    }
+}
+
+
 @keyframes scrollUp {
     from {
         transform: translateY(20px);
@@ -636,10 +659,10 @@ header {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    animation: fadeIn 0.4s ease-in-out;
 }
 
 .modal-content {
+    animation: zoomIn 0.6s ease-in-out;
     font-family: 'Myfont-Regular', sans-serif;
     padding: 0;
     width: 95%;
@@ -708,7 +731,7 @@ header {
     flex-direction: column;
     justify-content: center;
     padding-left: 8%;
-    z-index: 2;
+    z-index: 999;
 }
 
 .decorative-line {
@@ -749,22 +772,32 @@ header {
 
 .giant-bg-number {
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 25rem;
     font-weight: 900;
     color: rgba(0, 0, 0, 0.15);
-    z-index: 1;
     line-height: 1;
 }
 
-.driver-image-panel img {
+.driver-image-panel img{
     width: 60%;
     z-index: 99;
     object-fit: cover;
     object-position: right center;
     transform: translateY(40%);
+}
+
+.driver-image-panel .driver-car{
+    width: 160%;
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    transform: translateX(-30%);
+    pointer-events: none;
+    opacity: 0.65;
+    animation: slideLeft 1.8s ease;
 }
 
 .driver-bio-section {
@@ -837,6 +870,14 @@ header {
 .driver-info-panel::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+}
+
+.driver-meta img.country-flag {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: fill;
 }
 
 /* END DRIVERS MODAL */
@@ -928,8 +969,7 @@ header {
     }
 
     .giant-bg-number {
-        font-size: 8rem;
-        opacity: 0.1;
+        font-size: 15rem;
     }
 
     .driver-points {

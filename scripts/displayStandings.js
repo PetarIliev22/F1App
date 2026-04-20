@@ -34,7 +34,7 @@ function renderDrivers(standings, data) {
 
             <td style="display:flex; align-items:center; gap:10px;">
                 <img 
-                    src="${driversInfo[String(s.driver_number)]?.image}" 
+                    src="${driversInfo[String(s.driver_number)]?.compresseImages}" 
                     alt="Driver ${s.driver_number}" 
                     style="
                         width:45px;
@@ -92,9 +92,8 @@ async function driverModal() {
 
     const apiDriver = driversMap.get(Number(selecteddriverNumber));
     const jsonDriver = driversInfo[String(selecteddriverNumber)];
-
-    const driverData = { ...jsonDriver, ...apiDriver };
-
+    const driverData = { ...jsonDriver, ...apiDriver};
+    
     const points = (await getPointsMap())
         .get(String(selecteddriverNumber)) ?? 0;
 
@@ -119,10 +118,12 @@ async function driverModal() {
                     </div>
 
                     <div class="driver-meta">
-                        <span class="meta-item">Age: ${age}</span>
+                        <span class="meta-item">${age} years</span>
                         <span class="divider">|</span>
+                        <img src="${driverData?.countryFlag}" alt="Driver Country Flag" class="country-flag">
                         <span class="meta-item">${driverData?.country || 'Unknown'}</span>
                         <span class="divider">|</span>
+                        <img src="${driverData?.teamLogo}" alt="Driver Team Logo" class="team-logo" width="30">
                         <span class="meta-item">${driverData?.team_name || 'Unknown team'}</span>
                     </div>
 
@@ -152,18 +153,21 @@ async function driverModal() {
                     <div class="giant-bg-number">
                         ${driverData?.number || selecteddriverNumber}
                     </div>
+                    <img class="driver-car" src="${driverData?.teamCar}" alt="Driver Car">
                     <img src="${driverData?.image}" alt="${driverData?.full_name}">
-                    
+                
                     <div class="driver-points">${points || ''}PTS</div>
                 </div>
             </div>
         </div>
-    `;
+        `;
+        document.body.style.overflow = "hidden";
 }
 
+const modal = document.getElementById("driver-modal");
 window.closeModal = function () {
-    const modal = document.getElementById("driver-modal");
     modal.classList.replace("d-flex", "d-none");
+    document.body.style.overflow = "auto";
 };
 
 loadMore.onclick = () => {

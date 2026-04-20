@@ -32,8 +32,8 @@
                 <ul class="nav-list list-unstyled d-md-inline-flex d-none gap-4 m-0">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#news">News</a></li>
-                    <li><a href="#">Teams</a></li>
-                    <li><a href="#">Drivers</a></li>
+                    <li><a href="#">Race</a></li>
+                    <li><a href="#">Standings</a></li>
                     <li><a href="#">Schedule</a></li>
                 </ul>
             </nav>
@@ -120,7 +120,7 @@
         <!-- Last Race Information -->
         <section class="container last-race-card-information">
             <h2 class="mb-4" id="feature-race"></h2>
-            <p class="section-description p-3">Relive the latest Formula 1 Grand Prix with full race details, track information, and performance statistics.</p>
+            <p class="section-description p-3" id="last-race-standing"></p>
             <article class="last-race-card d-flex flex-column flex-lg-row justify-content-evenly">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
                 <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag" loading="lazy">
@@ -174,7 +174,7 @@
             <h2 class="section-title text-white">DRIVERS STANDING</h2>
             <p class="section-description mb-4 p-3 text-white">Current Formula 1 driver standings for the 2026 season. Points are updated after each race weekend.</p>
             <p class="section-description mb-4 p-3 text-white">Click on the driver's name to see their full profile.</p>
-            <div class="container" id="drivers-container">
+            <article class="container" id="drivers-container">
                 <table class="drivers-table">
                     <thead>
                         <tr>
@@ -188,7 +188,7 @@
                     <tbody id="drivers-body"></tbody>
                 </table>
                 <button class="btn load-standing" id="load-more">Load More</button>
-            </div>
+            </article>
             <div>
                 <p class="p-3 pt-4 text-center" class="section-description">Rankings are based on official FIA points system and updated live after each race.</p>
                 <div class="d-flex flex-row align-items-center justify-content-center gap-5">
