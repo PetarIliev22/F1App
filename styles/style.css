@@ -695,7 +695,7 @@ header {
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -731,7 +731,7 @@ header {
     flex-direction: column;
     justify-content: center;
     padding-left: 8%;
-    z-index: 999;
+    z-index: 99;
 }
 
 .decorative-line {
