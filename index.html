@@ -54,9 +54,9 @@
                 <nav aria-label="Bottom navigation">
                     <ul class="nav-list list-unstyled d-md-none d-flex gap-4 m-0" id="bottom-bar">
                         <li><a href="#news"><i class="bi bi-newspaper"></i></a></li>
-                        <li><a href="#"><i class="bi bi-people"></i></a></li>
+                        <li><a href="#drivers"><i class="bi bi-people"></i></a></li>
                         <li><a href="#home"><i class="bi bi-house"></i></a></li>
-                        <li><a href="#"><i class="bi bi-calendar-event"></i></a></li>
+                        <li><a href="#schedule"><i class="bi bi-calendar-event"></i></a></li>
                         <li><a href="#"><i class="bi bi-trophy"></i></a></li>
                     </ul>
                 </nav>
@@ -117,6 +117,14 @@
         </section>
         <!-- END Latest News -->
 
+        <!-- Sponsors Section -->
+        <aside class="container-fluid InfinityScroll">
+            <div class="Infinity-branding" id="track"></div>
+            <button class="arrow left" id="leftBtn">&#10094;</button>
+            <button class="arrow right" id="rightBtn">&#10095;</button>
+        </aside>
+         <!-- END Sponsors Section -->
+
         <!-- Last Race Information -->
         <section class="container last-race-card-information" id="last-race-info">
             <h2 class="mb-4" id="feature-race"></h2>
@@ -164,7 +172,10 @@
         <section class="container f1-drivers-section mt-4 p-3 pb-5" id="drivers">
             <h2 class="section-title text-white">DRIVERS STANDING</h2>
             <p class="section-description mb-4 p-3 text-white">Current Formula 1 driver standings for the 2026 season. Points are updated after each race weekend.</p>
-            <p class="section-description mb-4 p-3 text-white">Click on the driver's name to see their full profile.</p>
+            <div class="d-flex flex-column flex-md-row align-items-baseline justify-content-between gap-3 p-2">
+                <p class="section-description mb-4 p-3 text-white">Click on the driver's name to see their full profile.</p>
+                <input class="search p-1" type="text" placeholder="Search..." id="search-field">
+            </div>
             <article class="container" id="drivers-container">
                 <table class="drivers-table">
                     <thead>

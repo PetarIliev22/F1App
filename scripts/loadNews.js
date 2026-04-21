@@ -16,7 +16,7 @@ export async function loadNews(){
         newsCard.classList.add("col");
         newsCard.innerHTML = `
         <div class="card news-card">
-            <img src="./images/f1-logo-white.png" width="80" id="card-image">
+            <img src="/images/f1-logo-white.png" width="80" id="card-image">
             <div class="image-wrapper">
                 <img src="${el.images[0].url}" class="card-img-top dynamic-img" alt="${el.headline}">
 
@@ -38,20 +38,24 @@ export async function loadNews(){
         const imageOverlay = newsCard.querySelector(".image-overlay");
         const cardTitle = newsCard.querySelector(".card-title");
 
-        newsCard.addEventListener("mouseover", () => {
-            cardTitle.classList.add("d-none");
-            imageOverlay.style.animation = "fadeIn 0.5s ease-in-out";
-            imageOverlay.style.height = "100%";
-            imageOverlay.style.backgroundColor = "rgba(255, 0, 0, 0.6)";
-            newsCard.querySelector(".description-container").classList.replace("d-none", "d-block");
-        });
+        newsCard.addEventListener("click", () => {
+            const title = newsCard.querySelector(".card-title");
+            const overlay = newsCard.querySelector(".image-overlay");
+            const desc = newsCard.querySelector(".description-container");
 
-        newsCard.addEventListener("mouseleave", () => {
-            cardTitle.classList.remove("d-none");
-            imageOverlay.style.animation = "fadeOut 0.5s ease-in-out";
-            imageOverlay.style.height = "";
-            imageOverlay.style.backgroundColor = "rgba(255, 0, 0, 0)";
-            newsCard.querySelector(".description-container").classList.replace("d-block", "d-none");
+            const isOpen = desc.classList.contains("d-block");
+
+            if (!isOpen) {
+                title.classList.add("d-none");
+                overlay.style.height = "100%";
+                overlay.style.backgroundColor = "rgba(255, 0, 0, 0.6)";
+                desc.classList.replace("d-none", "d-block");
+            } else {
+                title.classList.remove("d-none");
+                overlay.style.height = "";
+                overlay.style.backgroundColor = "rgba(255, 0, 0, 0)";
+                desc.classList.replace("d-block", "d-none");
+            }
         });
     });
 }   

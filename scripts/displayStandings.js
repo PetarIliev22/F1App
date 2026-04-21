@@ -6,6 +6,7 @@ import { getDriverPoints } from "./driverPoints.js";
 
 const tbody = document.getElementById("drivers-body");
 const loadMore = document.getElementById("load-more");
+const searchField = document.getElementById("search-field");
 
 let driversMap = new Map();
 let pointsMap = new Map();
@@ -33,9 +34,7 @@ function renderDrivers(standings, data) {
             <td>P${s.position}</td>
 
             <td style="display:flex; align-items:center; gap:10px;">
-                <img 
-                    src="${driversInfo[String(s.driver_number)]?.compresseImages}" 
-                    alt="Driver ${s.driver_number}" 
+                <img src="${driversInfo[String(s.driver_number)]?.compresseImages}" alt="Driver ${s.driver_number}" 
                     style="
                         width:45px;
                         height:45px;
@@ -43,8 +42,7 @@ function renderDrivers(standings, data) {
                         background:#${color ?? '333'};
                         object-fit:cover;
                         object-position:center top;
-                    "
-                >
+                    ">
 
                 ${driverData?.full_name
                     ?? driversInfo[String(s.driver_number)]?.name
@@ -53,13 +51,10 @@ function renderDrivers(standings, data) {
 
             <td>${driverData?.team_name ?? "Unknown team"}</td>
 
-            <td>01:24:32 LAP</td>
+            <td>--:--:-- LAP</td>
 
             <td>
-                <img 
-                    src="${cars[String(s.driver_number)] ?? './images/cars_images/default.png'}" 
-                    width="150"
-                >
+                <img src="${cars[String(s.driver_number)] ?? './images/cars_images/default.png'}" width="150">
             </td>
         `;
 
@@ -178,6 +173,36 @@ loadMore.onclick = () => {
 
     renderDrivers(standings);
 };
+
+searchField.addEventListener("input", () => {
+    const query = searchField.value.toLowerCase().trim();
+
+    if (!query) {
+        renderDrivers(standings);
+        return;
+    }
+
+    const filtered = standings.filter(s => {
+        const driver = driversMap.get(Number(s.driver_number));
+
+        const name =
+            driver?.full_name ||
+            driversInfo[String(s.driver_number)]?.name ||
+            "";
+
+        const team = driver?.team_name || "";
+
+        const number = String(s.driver_number);
+
+        return (
+            name.toLowerCase().includes(query) ||
+            team.toLowerCase().includes(query) ||
+            number.includes(query)
+        );
+    });
+
+    renderDrivers(filtered);
+});
 
 async function init() {
     try {

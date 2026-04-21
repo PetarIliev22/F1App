@@ -28,6 +28,9 @@ export async function getDriverPoints() {
 
         sessionStorage.setItem("driverPoints", JSON.stringify(safeData));
         return safeData;
+    } catch (err) {
+        console.error(err);
+        return [];
     } finally {
         loadingProgress = false;
     }
