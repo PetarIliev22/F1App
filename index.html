@@ -32,9 +32,9 @@
                 <ul class="nav-list list-unstyled d-md-inline-flex d-none gap-4 m-0">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#news">News</a></li>
-                    <li><a href="#">Race</a></li>
-                    <li><a href="#">Standings</a></li>
-                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#last-race-info">Race</a></li>
+                    <li><a href="#drivers">Standings</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
                 </ul>
             </nav>
             <div class="social-media d-flex gap-3 m-0">
@@ -118,9 +118,10 @@
         <!-- END Latest News -->
 
         <!-- Last Race Information -->
-        <section class="container last-race-card-information">
+        <section class="container last-race-card-information" id="last-race-info">
             <h2 class="mb-4" id="feature-race"></h2>
-            <p class="section-description p-3" id="last-race-standing"></p>
+            <p class="section-description p-3" id="last-race-standing">Recap of the most recent Formula 1 Grand Prix results, including winner, circuit details, and key race highlights.</p>
+
             <article class="last-race-card d-flex flex-column flex-lg-row justify-content-evenly">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
                 <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag" loading="lazy">
@@ -147,25 +148,15 @@
 
                         <h3>CIRCUIT</h3>
                         <p id="circuit-short-name">-</p>
-
-                        <div class="circuit-info d-flex gap-3 gap-lg-5 mt-3 flex-wrap align-items-center justify-content-between text-center">
-                            <div>
-                                <h3 class="race-laps">LAPS</h3>
-                                <p id="race-laps">-</p>
-                            </div>
-                            <div>
-                                <h3 class="race-length">LENGTH</h3>
-                                <p id="race-length">-</p>
-                            </div>
-                            <div>
-                                <h3 class="race-weather">WEATHER</h3>
-                                <p id="race-weather">-</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </article>
 
+            <p class="section-description p-3 mt-4">Schedule for the next Formula 1 Grand Prix including the date, time, and location.</p>
+
+            <article class="container" id="schedule">
+            </article>
+            <button class="btn load-schedule" id="load-schedule"><i class="bi bi-caret-down-fill"></i></button>
         </section>
         <!-- END Last Race Information -->
 

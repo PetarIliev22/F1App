@@ -21,7 +21,6 @@
     }
 }
 
-
 @keyframes slideUp {
     from {
         transform: translate(-50%, 20px);
@@ -44,28 +43,6 @@
     }
 }
 
-@keyframes scrollDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideRight {
-    from {
-        transform: translateX(120%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 0.65;
-    }
-}
-
 @keyframes slideLeft {
     from {
         transform: translateX(-120%) translateX(-30%);
@@ -76,19 +53,6 @@
         opacity: 0.65;
     }
 }
-
-
-@keyframes scrollUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 
 @keyframes zoomIn {
     from {
@@ -547,8 +511,48 @@ header {
     font-family: "MyFont-regular", sans-serif;
 }
 
-.right-side .circuit-info h3{
-    font-size: 18px;
+.schedule-card {
+    opacity: 0.8;
+    font-size: 14px;
+    border: 2px solid rgba(212, 212, 212, 0.297);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px 0;
+    transition: 0.2s;
+    font-family: "MyFont-regular", sans-serif;
+    animation: slideDown 0.5s ease;
+}
+.schedule-card h5{
+    font-size: 15px;
+    font-family: "MyFont", sans-serif;
+}
+.schedule-card:hover {
+    transform: scale(1.01);
+    border-color: red;
+}
+
+.schedule-card.upcoming {
+    opacity: 1;
+    border-left: 4px solid red;
+}
+
+#load-schedule{
+    opacity: 0.5;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    font-family: "MyFont", sans-serif;
+    background-color: transparent;
+    border: 2px solid rgb(30, 30, 30);
+    color: rgb(30, 30, 30);
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#load-schedule:hover{
+    opacity: 1;
+    transition: 0.3s;
 }
 
 /* END Last Race Information */
@@ -695,7 +699,7 @@ header {
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -731,7 +735,7 @@ header {
     flex-direction: column;
     justify-content: center;
     padding-left: 8%;
-    z-index: 99;
+    z-index: 999;
 }
 
 .decorative-line {
@@ -853,11 +857,11 @@ header {
 
 .driver-points {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    top: 10px;
+    right: 190%;
     font-size: 2rem;
     font-weight: 900;
-    opacity: 0.4;
+    opacity: 0.7;
 }
 
 .driver-info-panel {
@@ -963,24 +967,33 @@ header {
         padding: 20px 0;
     }
 
-    .driver-image-panel img {
-        width: 70%;
-        transform: none; 
-    }
-
     .giant-bg-number {
         font-size: 15rem;
     }
 
     .driver-points {
-        font-size: 1.2rem;
+        font-size: 2.2rem;
         bottom: 10px;
-        right: 10px;
+        right: 33%;
+    }
+    .driver-image-panel .driver-car{
+        transform: translateX(10%);
+        animation: fadeIn 0.6s ease-in-out;
     }
 
     .driver-info-panel {
         overflow: visible;
         padding: 20px 15px;
+    }
+
+    .driver-image-panel {
+        height: 180px;
+        overflow: hidden;
+    }
+    
+    .driver-image-panel img {
+        width: 65%;
+        transform: translateY(30%);
     }
 }
 

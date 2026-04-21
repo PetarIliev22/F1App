@@ -6,6 +6,7 @@ import "./loadNews.js";
 import "./getLastRacePositions.js";
 import "./displayStandings.js";
 import "./driverPoints.js";
+import "./schedule.js";
 
 window.addEventListener("load", async () => {
     await getF1Data();

@@ -15,7 +15,7 @@ async function displayInfoAboutNextRace() {
     const nextRace = await fetchNextRace();
     
     if (!nextRace) return;
-    featureRaceInfo.innerHTML = "FEATURED RACE" + "<br>" + nextRace.meeting_name.toUpperCase();
+    featureRaceInfo.innerHTML = "LAST RACE HIGHLIGHTS" + "<br>" + "Circuit Name - " + " " + nextRace.meeting_name.toUpperCase();
     const img = cardBody.querySelector("img");
     img.src = nextRace.circuit_image;
 

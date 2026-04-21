@@ -25,6 +25,15 @@ export async function fetchNextRace() {
     return nextRace;
 }
 
+export async function fetchAllRaces() {
+    const data = await getF1Data();
+    const meetings = data?.meetings || [];
+
+    return meetings.sort(
+        (a, b) => new Date(a.date_start) - new Date(b.date_start)
+    );
+}
+
 let intervalStarted = false;
 function startCountdown() {
     if (intervalStarted) return;
