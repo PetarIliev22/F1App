@@ -81,7 +81,7 @@
 body {
     font-family: "Orbitron", sans-serif;
     background: 
-        linear-gradient(#15151ee1),
+        linear-gradient(#15151e93),
         url('../images/wallpaper.jpg');
     background-size: cover;
     background-attachment: fixed;
