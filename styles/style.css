@@ -919,8 +919,8 @@ header {
 
 .driver-points {
     position: absolute;
-    top: 10px;
-    right: 190%;
+    bottom: 0;
+    right: 10%;
     font-size: 2rem;
     font-weight: 900;
     opacity: 0.7;
@@ -1197,7 +1197,7 @@ footer p{
 
     .driver-points {
         font-size: 2.2rem;
-        bottom: 10px;
+        top: 12px;
         right: 33%;
     }
     .driver-image-panel .driver-car{

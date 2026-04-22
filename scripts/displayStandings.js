@@ -37,14 +37,16 @@ function renderDrivers(standings, data) {
                         width:45px;
                         height:45px;
                         border-radius:50%;
-                        background:#${color ?? '333'};
+                        background:#${color ?? "333"};
                         object-fit:cover;
                         object-position:center top;
                     ">
 
-                ${driverData?.full_name
-                    ?? driversInfo[String(s.driver_number)]?.name
-                    ?? `Driver ${s.driver_number}`}
+                ${
+                  driverData?.full_name ??
+                  driversInfo[String(s.driver_number)]?.name ??
+                  `Driver ${s.driver_number}`
+                }
             </td>
 
             <td>${driverData?.team_name ?? "Unknown team"}</td>
@@ -52,7 +54,7 @@ function renderDrivers(standings, data) {
             <td>--:--:-- LAP</td>
 
             <td>
-                <img src="${cars[String(s.driver_number)] ?? './images/cars_images/default.png'}" width="150">
+                <img src="${cars[String(s.driver_number)] ?? "./images/cars_images/default.png"}" width="150">
             </td>
         `;
 
@@ -87,8 +89,7 @@ async function driverModal() {
     const jsonDriver = driversInfo[String(selecteddriverNumber)];
     const driverData = { ...jsonDriver, ...apiDriver};
     
-    const points = (await getPointsMap())
-        .get(String(selecteddriverNumber)) ?? 0;
+    const points = (await getPointsMap()).get(String(selecteddriverNumber)) ?? 0;
 
     const nameParts = (driverData?.name || `Driver ${selecteddriverNumber}`).split(" ");
     const firstName = nameParts[0];
@@ -183,19 +184,16 @@ searchField.addEventListener("input", () => {
     const filtered = standings.filter(s => {
         const driver = driversMap.get(Number(s.driver_number));
 
-        const name =
-            driver?.full_name ||
-            driversInfo[String(s.driver_number)]?.name ||
-            "";
+        const name = driver?.full_name || driversInfo[String(s.driver_number)]?.name || "";
 
         const team = driver?.team_name || "";
 
         const number = String(s.driver_number);
 
         return (
-            name.toLowerCase().includes(query) ||
-            team.toLowerCase().includes(query) ||
-            number.includes(query)
+          name.toLowerCase().includes(query) ||
+          team.toLowerCase().includes(query) ||
+          number.includes(query)
         );
     });
 
@@ -206,9 +204,7 @@ async function init() {
     try {
         const data = await getF1Data();
 
-        driversMap = new Map(
-            (data?.drivers ?? []).map(d => [d.driver_number, d])
-        );
+        driversMap = new Map((data?.drivers ?? []).map(d => [d.driver_number, d]));
 
         standings = await getStandings();
 
