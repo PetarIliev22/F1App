@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="F1 Hub - Your Ultimate Formula 1 Destination. Stay updated with the latest news, teams, drivers, and schedule of the F1 season.">
-    <meta name="keywords" content="F1, Formula 1, F1 Hub, F1 News, F1 Teams, F1 Drivers, F1 Schedule, Grand Prix, Motorsport">
+    <meta name="description"
+        content="F1 Hub - Your Ultimate Formula 1 Destination. Stay updated with the latest news, teams, drivers, and schedule of the F1 season.">
+    <meta name="keywords"
+        content="F1, Formula 1, F1 Hub, F1 News, F1 Teams, F1 Drivers, F1 Schedule, Grand Prix, Motorsport">
     <meta name="author" content="Petar Iliev">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="./images/f1_logo.png">
     <link rel="stylesheet" href="./styles/style.css">
     <title>F1 Hub</title>
 </head>
+
 <body>
     <!-- Loading screen -->
     <div id="loading-screen" class="loading-screen">
@@ -33,8 +40,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#last-race-info">Race</a></li>
-                    <li><a href="#drivers">Standings</a></li>
                     <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#drivers">Standings</a></li>
                 </ul>
             </nav>
             <div class="social-media d-flex gap-3 m-0">
@@ -51,15 +58,15 @@
     <main class="container-md p-0">
         <!-- Bottom Navigation -->
         <section class="bottom-bar-nav">
-                <nav aria-label="Bottom navigation">
-                    <ul class="nav-list list-unstyled d-md-none d-flex gap-4 m-0" id="bottom-bar">
-                        <li><a href="#news"><i class="bi bi-newspaper"></i></a></li>
-                        <li><a href="#drivers"><i class="bi bi-people"></i></a></li>
-                        <li><a href="#home"><i class="bi bi-house"></i></a></li>
-                        <li><a href="#schedule"><i class="bi bi-calendar-event"></i></a></li>
-                        <li><a href="#"><i class="bi bi-trophy"></i></a></li>
-                    </ul>
-                </nav>
+            <nav aria-label="Bottom navigation">
+                <ul class="nav-list list-unstyled d-md-none d-none gap-4 m-0" id="bottom-bar">
+                    <li><a href="#news"><i class="bi bi-newspaper"></i></a></li>
+                    <li><a href="#drivers"><i class="bi bi-people"></i></a></li>
+                    <li><a href="#home"><i class="bi bi-house"></i></a></li>
+                    <li><a href="#schedule"><i class="bi bi-calendar-event"></i></a></li>
+                    <li><a href="#"><i class="bi bi-trophy"></i></a></li>
+                </ul>
+            </nav>
         </section>
         <!-- END Bottom Navigation -->
 
@@ -70,25 +77,26 @@
 
                 <p class="text-uppercase opacity-75">F1 RACE INFO - GRAND PRIX</p>
                 <h1 class="display-4 fw-bold" id="grand-prix-name"></h1>
-                
+
                 <div class="race-info mb-3">
                     <p class="mb-0 race-location" id="circuit-name"></p>
                 </div>
 
                 <aside class="countdown-container">
-                    <p class="opacity-75">The countdown shows time remaining until lights out at the next Grand Prix. Stay ready for race day excitement.</p>
+                    <p class="opacity-75">The countdown shows time remaining until lights out at the next Grand Prix.
+                        Stay ready for race day excitement.</p>
 
                     <div class="countdown d-flex gap-4 mt-3">
                         <div class="time-box d-flex flex-column align-items-center">
                             <span class="time">0</span>
                             <span class="label">DAYS</span>
                         </div>
-                        
+
                         <div class="time-box d-flex flex-column align-items-center">
                             <span class="time">0</span>
                             <span class="label">HOURS</span>
                         </div>
-                    
+
                         <div class="time-box d-flex flex-column align-items-center">
                             <span class="time">0</span>
                             <span class="label">MINUTES</span>
@@ -100,18 +108,20 @@
                         </div>
                     </div>
                 </aside>
-                
+
                 <div class="button mt-4 d-flex justify-content-center justify-content-md-start gap-2">
-                    <a href="https://www.formula1.com/en-bg/subscribe-to-f1-tv?from=cz&to=bg" class="btn btn-outline-light btn-md" id="scheduleBtn">GO LIVE</a>
+                    <a href="https://www.formula1.com/en-bg/subscribe-to-f1-tv?from=cz&to=bg"
+                        class="btn btn-outline-light btn-md" id="scheduleBtn">GO LIVE</a>
                 </div>
             </div>
         </section>
         <!-- END Hero Section -->
-        
+
         <!-- Latest News -->
         <section class="container f1-news-section mt-4" id="news">
             <h2 class="section-title">LATEST NEWS ABOUT F1 </h2>
-            <p class="section-description mb-4 p-3">Stay up to date with the latest Formula 1 news, team updates, driver announcements, and behind-the-scenes stories from the paddock.</p>
+            <p class="section-description mb-4 p-3">Stay up to date with the latest Formula 1 news, team updates, driver
+                announcements, and behind-the-scenes stories from the paddock.</p>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 p-3" id="news-container">
             </div>
         </section>
@@ -123,17 +133,19 @@
             <button class="arrow left" id="leftBtn">&#10094;</button>
             <button class="arrow right" id="rightBtn">&#10095;</button>
         </aside>
-         <!-- END Sponsors Section -->
+        <!-- END Sponsors Section -->
 
         <!-- Last Race Information -->
         <section class="container last-race-card-information" id="last-race-info">
             <h2 class="mb-4" id="feature-race"></h2>
-            <p class="section-description p-3" id="last-race-standing">Recap of the most recent Formula 1 Grand Prix results, including winner, circuit details, and key race highlights.</p>
+            <p class="section-description p-3" id="last-race-standing">Recap of the most recent Formula 1 Grand Prix
+                results, including winner, circuit details, and key race highlights.</p>
 
             <article class="last-race-card d-flex flex-column flex-lg-row justify-content-evenly">
                 <img src="./images/f1-logo-white.png" width="80" id="card-image">
-                <img src ="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag" loading="lazy">
-                
+                <img src="#" alt="Circuit Country Flag" class="country-flag rounded-4" width="50" id="contry-flag"
+                    loading="lazy">
+
                 <div class="left-side">
                     <div class="card-body d-flex flex-column align-items-center justify-content-center" id="card-body">
                         <img src="#" alt="Monaco Grand Prix" class="race-image rounded-4" width="250">
@@ -160,10 +172,10 @@
                 </div>
             </article>
 
-            <p class="section-description p-3 mt-4">Schedule for the next Formula 1 Grand Prix including the date, time, and location.</p>
+            <p class="section-description p-3 mt-4">Schedule for the next Formula 1 Grand Prix including the date, time,
+                and location.</p>
 
-            <article class="container" id="schedule">
-            </article>
+            <article class="container" id="schedule"></article>
             <button class="btn load-schedule" id="load-schedule"><i class="bi bi-caret-down-fill"></i></button>
         </section>
         <!-- END Last Race Information -->
@@ -171,11 +183,15 @@
         <!-- F1 DRIVERS STANDING -->
         <section class="container f1-drivers-section mt-4 p-3 pb-5" id="drivers">
             <h2 class="section-title text-white">DRIVERS STANDING</h2>
-            <p class="section-description mb-4 p-3 text-white">Current Formula 1 driver standings for the 2026 season. Points are updated after each race weekend.</p>
+            <p class="section-description mb-4 p-3 text-white">Check out the drivers standing from last F1 Grand Prix.
+            </p>
+
             <div class="d-flex flex-column flex-md-row align-items-baseline justify-content-between gap-3 p-2">
-                <p class="section-description mb-4 p-3 text-white">Click on the driver's name to see their full profile.</p>
+                <p class="section-description mb-4 p-3 text-white">Click on the driver's name to see their full profile.
+                </p>
                 <input class="search p-1" type="text" placeholder="Search..." id="search-field">
             </div>
+
             <article class="container" id="drivers-container">
                 <table class="drivers-table">
                     <thead>
@@ -191,13 +207,16 @@
                 </table>
                 <button class="btn load-standing" id="load-more">Load More</button>
             </article>
+
             <div>
-                <p class="p-3 pt-4 text-center" class="section-description">Rankings are based on official FIA points system and updated live after each race.</p>
+                <p class="p-3 pt-4 text-center" class="section-description">Rankings are based on official FIA points
+                    system and updated live after each race.</p>
                 <div class="d-flex flex-row align-items-center justify-content-center gap-5">
                     <img src="./images/f1-logo-white.png" alt="F1 Hub Logo" width="100">
                     <img src="./images//fia.png" alt="F1 Hub Logo" width="80">
                 </div>
             </div>
+
             <!-- DRIVER MODAL -->
             <div id="driver-modal" class="modal d-none">
                 <div class="modal-content">
@@ -205,13 +224,95 @@
                 </div>
             </div>
             <!-- END DRIVER MODAL -->
+
         </section>
         <!-- END F1 DRIVERS STANDING -->
+
+        <!-- CONTACT -->
+        <section class="container contact-section" id="contact">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>STAY CONNECTED WITH US</h2>
+                    <p>If you have any questions or inquiries, please don't hesitate to contact us.</p>
+                    <p>Our team is always available to assist you.</p>
+                </div>
+
+                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="name" name="Name" placeholder="Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="Email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea required rows="4" id="message" name="Message" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="form-submit">
+                        <span>Submit</span>
+                    </button>
+                    <div class="form-response d-none" id="form-response">
+                        <p class="mt-2"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- END CONTACT -->
     </main>
     <!-- END Main Content -->
-     
-    <footer></footer>
+
+    <!-- Footer -->
+    <footer class="container-fluid container-md text-center text-lg-start">
+        <section class="d-flex justify-content-between align-items-center p-4 border-bottom">
+            <div class="d-none d-lg-block">
+                <span>Follow us for the latest Formula 1 updates and news:</span>
+            </div>
+
+            <div class="social-media d-flex gap-3 m-0">
+                <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="me-2"><i class="bi bi-youtube"></i></a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container text-center text-md-start mt-5">
+                <div class="row align-items-baseline">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <img src="./images/f1_logo.png" alt="F1 Hub Logo" width="150">
+                        <h6 class="text-uppercase text-white mt-4">Formula 1 Hub</h6>
+                        <p class="mt-3">Your source for the latest Formula 1 news, race results, driver updates, and highlights from
+                            the world of motorsport.</p>
+                    </div>
+
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" id="footer-links">
+                        <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+                        <p><a href="#home" >Home</a></p>
+                        <p><a href="#schedule">Schedule</a></p>
+                        <p><a href="#drivers">Drivers</a></p>
+                        <p><a href="#news">News</a></p>
+                    </div>
+
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4" id="contact">
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="bi bi-house me-2"></i> Motorsport Street, F1 City</p>
+                        <p><i class="bi bi-envelope me-2"></i> contact@f1hub.com</p>
+                        <p><i class="bi bi-telephone me-2"></i> +00 123 456 789</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center p-4">
+            © 2026 Formula 1 Hub. All rights reserved.
+        </div>
+    </footer>
+    <!-- END Footer -->
+
     <script src="./scripts/main.js" type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

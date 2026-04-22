@@ -65,7 +65,7 @@ export const driversInfo = {
 
   "3": {
     name: "Max Verstappen",
-    number: 1,
+    number: 3,
     team: "Red Bull Racing",
     teamCar: "./images/cars_images/cars/redbull.png",
     teamLogo: "./images/drivers/drivers_teamLogos/redbull.png",
@@ -274,9 +274,9 @@ export const driversInfo = {
   "6": {
     name: "Isack Hadjar",
     number: 6,
-    team: "RB",
-    teamCar: "./images/cars_images/cars/rb.png",
-    teamLogo: "./images/drivers/drivers_teamLogos/rb.png",
+    team: "Red Bull Racing",
+    teamCar: "./images/cars_images/cars/redbull.png",
+    teamLogo: "./images/drivers/drivers_teamLogos/redbull.png",
     country: "France",
     birthDate: "2004-09-28",
     countryFlag: "./images/drivers/drivers_countryFlag/france.png",

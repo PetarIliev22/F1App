@@ -1,5 +1,5 @@
 import { fetchAllRaces } from "./nextRaceCounter.js";
- 
+
 const loadSchedule = document.getElementById("load-schedule");
 let sliceNumber = 5;
 let opened = false;

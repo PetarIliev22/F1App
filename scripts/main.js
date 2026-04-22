@@ -8,6 +8,7 @@ import "./displayStandings.js";
 import "./driverPoints.js";
 import "./schedule.js";
 import "./sponsorsInfinityScroll.js";
+import "./formValidation.js";
 
 window.addEventListener("load", async () => {
     await getF1Data();

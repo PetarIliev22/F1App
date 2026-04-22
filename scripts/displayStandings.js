@@ -21,10 +21,8 @@ function renderDrivers(standings, data) {
 
     standings.slice(0, sliceNumber).forEach(s => {
         const driverData = driversMap.get(Number(s.driver_number));
-        const points = pointsMap.get(String(s.driver_number)) ?? 0;
 
         const row = document.createElement("tr");
-
         const color = driverData?.team_colour;
 
         row.style.boxShadow = `inset 6px 0 0 #${color}`;
