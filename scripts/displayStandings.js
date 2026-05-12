@@ -150,7 +150,7 @@ async function driverModal() {
                     <img class="driver-car" src="${driverData?.teamCar}" alt="Driver Car">
                     <img src="${driverData?.image}" alt="${driverData?.full_name}">
                 
-                    <div class="driver-points">${points || ''}PTS</div>
+                    <div class="driver-points">${points || '0'} PTS</div>
                 </div>
             </div>
         </div>
